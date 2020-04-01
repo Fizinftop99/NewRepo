@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <iostream>
 
 class Comment_remover {
 public:
@@ -16,7 +17,7 @@ public:
 			NOT_FINISHING_STRING,
 			FINISHING_MULTI
 		} state = State::OUTSIDE;
-		auto contents = read(file);
+		auto contents = read_file(file);
 		std::vector<char> results;
 		size_t pos = 0;
 		for (auto c : contents) {
@@ -80,6 +81,9 @@ public:
 				break;
 			}
 		}
+		for (char item : results) {
+			std::cout << item;
+		}
 		std::ofstream writer(file, std::ios::binary);
 		for (auto c : results) {
 			writer << c;
@@ -88,7 +92,7 @@ public:
 	}
 
 private:
-	std::vector<char> read(std::string& file) {
+	std::vector<char> read_file(std::string& file) {
 		std::vector<char> result;
 		std::ifstream reader(file, std::ios::binary);
 		char c;
