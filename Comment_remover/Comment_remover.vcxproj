@@ -143,9 +143,6 @@
   <ItemGroup>
     <ClCompile Include="Comment_remover.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Comment_remover.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
