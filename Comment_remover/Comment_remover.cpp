@@ -4,7 +4,7 @@
 #include <sstream>
 #include <string>
 
-void remove(std::string file) {
+void remove_comments(std::string file) {
 	enum class State {
 		LOUNCH,
 		WITHIN_SINGULAR,
@@ -14,7 +14,12 @@ void remove(std::string file) {
 		NOT_FINISHING_STRING,
 		FINISHING_MULTI
 	} state = State::BEYOND;
-	auto contents = read_(file);
+	std::vector<char> contents;
+	std::ifstream reader(file, std::ios::binary);
+	char c;
+	while (reader.get(c)) {
+		contents.push_back(c);
+	}
 	std::vector<char> results;
 	size_t pos = 0;
 	for (auto c : contents) {
@@ -84,16 +89,7 @@ void remove(std::string file) {
 	}
 }
 
-std::vector<char> read_(std::string file) {
-	std::vector<char> result;
-	std::ifstream reader(file, std::ios::binary);
-	char c;
-	while (reader.get(c)) {
-		result.push_back(c);
-	}
-	return result;
-}
 int main() {
-	remove("input.txt");
+	remove_comments("input.txt");
 	return 0;
 }

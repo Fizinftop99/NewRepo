@@ -1,10 +1,3 @@
-#include <iostream> 
-
-int main()
-{ 
-
-	std::cout << "Hello, \"M\" /* commented */ world! // again :)" << std::endl; 
-	
-	int x; 
-	int y; 
-} 
+gbffg
+вавив /* вавмамв */ ввавава /* tytytyt */ ваваап // qwqwqw
+dasdaw
